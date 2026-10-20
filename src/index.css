@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-negro font-sans text-crema antialiased;
+  }
+
+  ::selection {
+    @apply bg-turquesa text-negro;
+  }
+}
+
+@layer components {
+  .btn-primario {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-turquesa px-5 py-3.5 text-xs font-extrabold uppercase tracking-wider text-negro transition hover:brightness-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-turquesa focus-visible:ring-offset-2 focus-visible:ring-offset-negro sm:px-7 sm:text-sm;
+  }
+
+  .btn-secundario {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-dorado/70 px-5 py-3.5 text-xs font-extrabold uppercase tracking-wider text-dorado transition hover:bg-dorado/10 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-dorado focus-visible:ring-offset-2 focus-visible:ring-offset-negro sm:px-7 sm:text-sm;
+  }
+
+  .btn-suave {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3.5 text-xs font-extrabold uppercase tracking-wider text-crema transition hover:bg-white/10 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-crema focus-visible:ring-offset-2 focus-visible:ring-offset-negro sm:px-7 sm:text-sm;
+  }
+
+  .tarjeta {
+    @apply rounded-3xl border border-white/10 bg-white/5 transition duration-300;
+  }
+
+  .titular-seccion {
+    @apply font-display text-4xl tracking-wide text-crema sm:text-5xl;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-aparecer {
+  animation: aparecer 0.7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
